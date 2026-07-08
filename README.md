@@ -103,3 +103,12 @@ Entity Framework Core
 Bu proje, Angular ve ASP.NET Core Web API teknolojilerini kullanarak gerçek hayatta kullanılabilecek kurumsal bir kozmetik markasının web platformunu geliştirmek amacıyla hazırlanmıştır.
 
 Projede modern frontend mimarisi, RESTful API yaklaşımı, katmanlı yapı ve yönetilebilir bir admin paneli birlikte kullanılarak ölçeklenebilir bir yapı oluşturulmuştur.
+
+# 📸 Ekran Görüntüleri
+<img width="1920" height="2325" alt="screencapture-localhost-4200-products-2026-07-09-00_04_05" src="https://github.com/user-attachments/assets/9c9c4c5f-777b-45e6-822c-c13f7a66906f" />
+
+<img width="1920" height="912" alt="screencapture-localhost-4200-admin-testimonials-2026-07-09-00_04_33" src="https://github.com/user-attachments/assets/3ddd112c-4fb4-411e-8848-b60ed17255aa" />
+<img width="1920" height="1667" alt="screencapture-localhost-4200-products-2026-07-09-00_03_57" src="https://github.com/user-attachments/assets/d5a661ed-13f1-4338-bec6-5ec3f5fef32e" />
+<img width="1920" height="912" alt="screencapture-localhost-4200-admin-features-2026-07-09-00_04_24" src="https://github.com/user-attachments/assets/c289418b-c7cc-4709-8f12-d2eaca6c780b" />
+<img width="1920" height="5418" alt="screencapture-localhost-4200-2026-07-09-00_03_19" src="https://github.com/user-attachments/assets/52769a51-49ca-4910-9377-5e9303dbaf27" />
+<img width="1892" height="907" alt="Ekran görüntüsü 2026-07-09 000524" src="https://github.com/user-attachments/assets/37ffdbd8-d09a-44f5-bedf-14cf8da4d882" />
