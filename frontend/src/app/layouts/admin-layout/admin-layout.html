@@ -1,0 +1,108 @@
+<div class="flex min-h-screen bg-background text-on-surface font-body-md antialiased">
+
+  <!-- Sidebar -->
+  <aside
+    class="fixed inset-y-0 left-0 z-40 w-64 bg-surface-container-low border-r border-outline-variant/30 flex flex-col transition-transform duration-300 -translate-x-full md:translate-x-0"
+    id="adminSidebar"
+  >
+    <!-- Brand -->
+    <div class="flex items-center gap-2 px-6 h-20 border-b border-outline-variant/30">
+      <a href="/admin" class="font-headline-md text-headline-md tracking-widest text-primary uppercase">
+        LUMIÈRE
+      </a>
+      <span class="font-label-sm text-[10px] text-on-surface-variant tracking-widest uppercase mt-1">Admin</span>
+    </div>
+
+    <!-- Nav -->
+    <nav class="flex-1 overflow-y-auto no-scrollbar py-stack-lg px-4 flex flex-col gap-1">
+
+      <span class="font-label-sm text-[10px] text-on-surface-variant tracking-widest uppercase px-3 mt-2 mb-2">Katalog</span>
+
+      <a routerLink="/admin/products" routerLinkActive="bg-primary-container text-on-primary-container"
+         class="flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">inventory_2</span>
+        Ürünler
+      </a>
+
+      <a routerLink="/admin/categories" routerLinkActive="bg-primary-container text-on-primary-container"
+         class="flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">category</span>
+        Kategoriler
+      </a>
+
+      <span class="font-label-sm text-[10px] text-on-surface-variant tracking-widest uppercase px-3 mt-4 mb-2">İçerik</span>
+
+      <a routerLink="/admin/abouts" routerLinkActive="bg-primary-container text-on-primary-container"
+         class="flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">info</span>
+        Hakkımızda
+      </a>
+
+      <a routerLink="/admin/features" routerLinkActive="bg-primary-container text-on-primary-container"
+         class="flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+        Öne Çıkan Alan
+      </a>
+
+      <a routerLink="/admin/testimonials" routerLinkActive="bg-primary-container text-on-primary-container"
+         class="flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">rate_review</span>
+        Yorumlar
+      </a>
+
+      <span class="font-label-sm text-[10px] text-on-surface-variant tracking-widest uppercase px-3 mt-4 mb-2">İletişim</span>
+
+      <a routerLink="/admin/contact-infoes" routerLinkActive="bg-primary-container text-on-primary-container"
+         class="flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">contact_mail</span>
+        İletişim Bilgileri
+      </a>
+
+      <a routerLink="/admin/contact-messages" routerLinkActive="bg-primary-container text-on-primary-container"
+         class="flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-surface-container hover:text-primary transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">mail</span>
+        İletişim Mesajları
+      </a>
+    </nav>
+
+    <!-- Bottom / logout -->
+    <div class="border-t border-outline-variant/30 p-4">
+      <a routerLink=".." class="w-full flex items-center gap-3 px-3 py-2.5 rounded-full font-label-sm text-label-sm text-on-surface-variant hover:bg-secondary-container hover:text-on-secondary-container transition-colors duration-200">
+        <span class="material-symbols-outlined text-[20px]">logout</span>
+        Çıkış Yap
+      </a>
+    </div>
+  </aside>
+
+  <!-- Content wrapper -->
+  <div class="flex-1 min-w-0 md:ml-64 flex flex-col min-h-screen">
+
+    <!-- Topbar -->
+    <header class="sticky top-0 z-30 bg-surface/80 backdrop-blur-md shadow-sm">
+      <div class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-20">
+        <div class="flex items-center gap-3">
+          <button id="sidebarToggle" class="md:hidden text-primary">
+            <span class="material-symbols-outlined text-[24px]">menu</span>
+          </button>
+          <!-- Breadcrumb (dinamik olarak component içinden set edilecek) -->
+          <div>
+            <p class="font-label-sm text-[10px] text-on-surface-variant tracking-widest uppercase">LUMIÈRE</p>
+            <h1 class="font-headline-md text-[22px] text-on-surface">Kontrol Paneli</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-stack-md">
+          <span class="font-label-sm text-label-sm text-on-surface-variant hidden sm:inline">Berke</span>
+          <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-primary text-[20px]">person</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page content -->
+    <main class="flex-1 p-margin-mobile md:p-margin-desktop">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

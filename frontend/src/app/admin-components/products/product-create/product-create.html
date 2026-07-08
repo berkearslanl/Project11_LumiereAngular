@@ -1,0 +1,87 @@
+<div class="max">
+
+  <!-- Header -->
+  <div class="mb-stack-lg">
+    <a routerLink="/admin/products" class="flex items-center gap-1 font-label-sm text-[12px] text-on-surface-variant hover:text-primary transition-colors mb-2 w-fit">
+      <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+      Ürün Listesi
+    </a>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface">Ürün Ekle</h1>
+    <p class="font-body-md text-on-surface-variant mt-1">Kataloğa yeni bir ürün ekleyin.</p>
+  </div>
+
+  <!-- Form Card -->
+  <form #createForm="ngForm" (ngSubmit)="create()"
+        class="bg-surface-container-lowest shadow-[0_4px_24px_rgba(124,82,99,0.05)] p-8 flex flex-col gap-stack-md">
+
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Ürün Adı</label>
+      <input
+        type="text" name="name" required
+        [(ngModel)]="product.name"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+        placeholder="Örn. Radiance Serum"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Ürün Kategorisi</label>
+      <select
+        name="categoryId" required
+        [(ngModel)]="product.categoryId"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+      >
+        <option [value]="undefined" selected disabled>---Kategori Seçiniz---</option>
+        @for (ctgr of categories(); track $index) {
+          <option [value]="ctgr.id">{{ ctgr.name }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="grid grid-cols-2 gap-gutter">
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Ürün Fiyatı</label>
+        <div class="relative">
+          <input
+            type="text" name="price" required
+            [(ngModel)]="product.price"
+            class="w-full bg-surface border border-outline-variant pl-4 pr-8 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+            placeholder="0.00"
+          />
+          <span class="absolute right-4 top-1/2 -translate-y-1/2 font-body-md text-on-surface-variant">₺</span>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Ürün Görseli (URL)</label>
+        <input
+          type="text" name="imageUrl" required
+          [(ngModel)]="product.imageUrl"
+          class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+          placeholder="https://..."
+        />
+      </div>
+    </div>
+
+    <!-- Görsel önizleme -->
+    @if (product.imageUrl) {
+      <div class="w-24 h-24 bg-surface-container-low flex items-center justify-center overflow-hidden self-start">
+        <img [src]="product.imageUrl" class="w-full h-full object-contain mix-blend-darken" />
+      </div>
+    }
+
+    <div class="flex gap-stack-sm mt-2">
+      <button
+        type="submit"
+        [disabled]="createForm.invalid"
+        class="bg-primary text-on-primary font-label-sm text-label-sm px-8 py-3 rounded-full hover:bg-secondary hover:text-on-secondary transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:bg-primary disabled:hover:text-on-primary"
+      >
+        Ürünü Ekle
+      </button>
+      <a routerLink="/admin/products"
+         class="font-label-sm text-label-sm text-on-surface-variant px-8 py-3 border border-outline-variant hover:bg-surface-container-low transition-colors duration-200 rounded-full">
+        Vazgeç
+      </a>
+    </div>
+  </form>
+</div>

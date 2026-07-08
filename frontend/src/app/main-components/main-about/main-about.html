@@ -1,0 +1,71 @@
+<!-- Hakkımızda Bölümü -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto" id="about">
+  @for (item of abouts(); track $index) {
+     <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
+        <!-- Sol Taraf - İçerik -->
+        <div>
+            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest mb-stack-sm block">
+                Özel Bakım Hizmetleri
+            </span>
+
+            <h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-md leading-tight">
+                {{item.title}}
+            </h2>
+
+            <p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">
+                {{item.description}}
+            </p>
+
+            <ul class="space-y-4 mb-stack-lg border-t border-outline-variant pt-stack-md">
+                <li class="flex items-center gap-4 text-on-surface">
+                    <span class="material-symbols-outlined text-secondary">
+                        {{item.item1Icon}}
+                    </span>
+                    <span class="font-body-md text-body-md">
+                        {{item.item1}}
+                    </span>
+                </li>
+
+                <li class="flex items-center gap-4 text-on-surface">
+                    <span class="material-symbols-outlined text-secondary">
+                        {{item.item2Icon}}
+                    </span>
+                    <span class="font-body-md text-body-md">
+                        {{item.item2}}
+                    </span>
+                </li>
+
+                <li class="flex items-center gap-4 text-on-surface">
+                    <span class="material-symbols-outlined text-secondary">
+                        {{item.item3Icon}}
+                    </span>
+                    <span class="font-body-md text-body-md">
+                        {{item.item3}}
+                    </span>
+                </li>
+            </ul>
+
+            <button
+                class="border border-secondary text-secondary font-label-sm text-label-sm px-8 py-4 uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-colors duration-300 rounded-lg">
+                Randevu Oluştur
+            </button>
+        </div>
+
+        <!-- Sağ Taraf - Görsel -->
+        <div>
+            <div class="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-lg">
+                <img
+                    src="{{item.imageUrl}}"
+                    alt="Cilt Bakım Hizmeti"
+                    class="w-full h-full object-cover"
+                />
+
+                <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+            </div>
+        </div>
+
+    </div>
+  }
+
+</section>

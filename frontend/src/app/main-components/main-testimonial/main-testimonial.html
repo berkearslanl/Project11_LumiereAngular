@@ -1,0 +1,40 @@
+<!-- Testimonial Section -->
+<section
+  class="py-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto bg-surface-bright"
+  id="comment"
+>
+  <div class="text-center mb-stack-lg">
+    <h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">Sizden Gelenler</h2>
+    <p class="font-body-md text-body-md text-on-surface-variant">
+      Topluluğumuzdan gerçek sonuçlar.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+
+@for (item of testimonials(); track $index) {
+  <div class="bg-surface-container-low p-8 flex flex-col items-center text-center shadow-sm">
+      <div
+        class="w-20 h-20 rounded-full bg-primary-container flex items-center justify-center mb-stack-md"
+      >
+        <span class="material-symbols-outlined text-primary text-[32px]">person</span>
+      </div>
+      <div class="flex gap-1 mb-stack-sm text-secondary">
+        @for (star of stars; track star) {
+          <span
+          class="material-symbols-outlined text-[18px]"
+          [style.font-variation-settings]="star <= item.rating ? '\'FILL\' 1' : '\'FILL\' 0'"
+        >star</span>
+        }
+      </div>
+      <p class="font-body-md italic text-on-surface mb-stack-md">
+        "{{item.comment}}"
+      </p>
+      <span class="font-label-sm text-label-sm uppercase tracking-widest text-primary">
+        {{item.fullName}}
+      </span>
+    </div>
+}
+
+
+  </div>
+</section>

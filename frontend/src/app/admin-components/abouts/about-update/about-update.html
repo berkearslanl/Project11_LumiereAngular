@@ -1,0 +1,79 @@
+<div class="max">
+  <div class="mb-stack-lg">
+    <a routerLink=".." class="flex items-center gap-1 font-label-sm text-[12px] text-on-surface-variant hover:text-primary transition-colors mb-2 w-fit">
+      <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+      Hakkımızda
+    </a>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface">Hakkımızda İçeriğini Güncelle</h1>
+  </div>
+
+  <form #updateForm="ngForm" (ngSubmit)="update()"
+        class="bg-surface-container-lowest shadow-[0_4px_24px_rgba(124,82,99,0.05)] p-8 flex flex-col gap-stack-md">
+
+    <input type="hidden" name="id" [(ngModel)]="about.id" />
+
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Başlık</label>
+      <input type="text" name="title" required [(ngModel)]="about.title"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Açıklama</label>
+      <textarea name="description" rows="3" required [(ngModel)]="about.description"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200 resize-none"></textarea>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Görsel URL</label>
+      <input type="text" name="imageUrl" required [(ngModel)]="about.imageUrl"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+    </div>
+
+    @if (about.imageUrl) {
+      <div class="w-24 h-24 bg-surface-container-low flex items-center justify-center overflow-hidden self-start">
+        <img [src]="about.imageUrl" class="w-full h-full object-contain mix-blend-darken" />
+      </div>
+    }
+
+    <div class="border-t border-outline-variant/30 pt-stack-md">
+      <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-stack-sm">Öne Çıkan Maddeler</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+        <div class="flex flex-col gap-2">
+          <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Madde 1</label>
+          <input type="text" name="item1" required [(ngModel)]="about.item1"
+            class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+          <input type="text" name="item1Icon" required [(ngModel)]="about.item1Icon" placeholder="material icon adı"
+            class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-[13px] text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Madde 2</label>
+          <input type="text" name="item2" required [(ngModel)]="about.item2"
+            class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+          <input type="text" name="item2Icon" required [(ngModel)]="about.item2Icon" placeholder="material icon adı"
+            class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-[13px] text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Madde 3</label>
+          <input type="text" name="item3" required [(ngModel)]="about.item3"
+            class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+          <input type="text" name="item3Icon" required [(ngModel)]="about.item3Icon" placeholder="material icon adı"
+            class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-[13px] text-on-surface-variant focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200" />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex gap-stack-sm mt-2">
+      <button type="submit" [disabled]="updateForm.invalid || !updateForm.dirty"
+        class="bg-primary text-on-primary font-label-sm text-label-sm px-8 py-3 rounded-full hover:bg-secondary hover:text-on-secondary transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed">
+        Değişiklikleri Kaydet
+      </button>
+      <a routerLink=".." class="font-label-sm text-label-sm text-on-surface-variant px-8 py-3 border border-outline-variant hover:bg-surface-container-low transition-colors duration-200 rounded-full">
+        Vazgeç
+      </a>
+    </div>
+  </form>
+</div>

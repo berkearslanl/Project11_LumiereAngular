@@ -1,0 +1,44 @@
+<div class="bg-surface-container-lowest shadow-[0_4px_24px_rgba(124,82,99,0.05)] overflow-hidden max">
+  <div class="flex justify-between items-center px-6 py-stack-md border-b border-outline-variant/30">
+    <h2 class="font-headline-md text-[20px] text-on-surface">Öne Çıkan Alan</h2>
+
+    @if (features()?.[0]; as item) {
+      <div class="flex gap-2">
+        <a [routerLink]="['update', item.id]"
+           class="flex items-center gap-1 px-4 py-2 rounded-full border border-outline-variant text-primary font-label-sm text-[12px] hover:bg-secondary hover:text-on-secondary hover:border-secondary transition-colors duration-200">
+          <span class="material-symbols-outlined text-[16px]">edit</span>
+          Güncelle
+        </a>
+        <button (click)="delete(item.id)"
+                class="flex items-center gap-1 px-4 py-2 rounded-full border border-error/40 text-error font-label-sm text-[12px] hover:bg-error-container hover:text-on-error-container hover:border-error transition-colors duration-200">
+          <span class="material-symbols-outlined text-[16px]">delete</span>
+          Sil
+        </button>
+      </div>
+    } @else {
+      <a routerLink="create"
+         class="flex items-center gap-2 bg-primary text-on-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:bg-secondary hover:text-on-secondary transition-colors duration-300">
+        <span class="material-symbols-outlined text-[18px]">add</span>
+        Ekle
+      </a>
+    }
+  </div>
+
+  @if (features()?.[0]; as item) {
+    <div class="p-6 flex flex-col gap-stack-md">
+      <div class="w-full h-40 bg-surface-container-low flex items-center justify-center overflow-hidden">
+        <img [src]="item.imageUrl" [alt]="item.title" class="w-full h-full object-contain mix-blend-darken" />
+      </div>
+      <div>
+        <p class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest mb-1">{{ item.mainTitle }}</p>
+        <h3 class="font-headline-md text-[18px] text-on-surface mb-2">{{ item.title }}</h3>
+        <p class="font-body-md text-[14px] text-on-surface-variant">{{ item.description }}</p>
+      </div>
+    </div>
+  } @else {
+    <div class="p-16 flex flex-col items-center gap-3 text-center">
+      <span class="material-symbols-outlined text-on-surface-variant text-[32px]">auto_awesome</span>
+      <p class="font-body-md text-on-surface-variant">Henüz öne çıkan alan içeriği oluşturulmamış.</p>
+    </div>
+  }
+</div>

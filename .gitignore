@@ -1,0 +1,20 @@
+# Frontend (Angular)
+frontend/node_modules/
+frontend/.angular/
+frontend/dist/
+frontend/.claude/
+frontend/npm-debug.log
+frontend/yarn-error.log
+
+# Backend (.NET)
+backend/**/bin/
+backend/**/obj/
+backend/**/.vs/
+backend/**/*.db
+backend/**/*.db-shm
+backend/**/*.db-wal
+backend/**/*.csproj.user
+
+# System files
+.DS_Store
+Thumbs.db

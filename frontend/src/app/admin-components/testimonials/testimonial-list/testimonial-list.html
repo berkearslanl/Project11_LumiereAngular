@@ -1,0 +1,60 @@
+<div class="bg-surface-container-lowest shadow-[0_4px_24px_rgba(124,82,99,0.05)] overflow-hidden">
+  <div class="flex justify-between items-center px-6 py-stack-md border-b border-outline-variant/30">
+    <div>
+      <h2 class="font-headline-md text-[20px] text-on-surface">Yorumlar</h2>
+      <p class="font-label-sm text-[12px] text-on-surface-variant">{{ testimonials().length }} kayıt</p>
+    </div>
+    <a routerLink="create"
+       class="flex items-center gap-2 bg-primary text-on-primary font-label-sm text-label-sm px-6 py-2.5 rounded-full hover:bg-secondary hover:text-on-secondary transition-colors duration-300">
+      <span class="material-symbols-outlined text-[18px]">add</span>
+      Yeni Ekle
+    </a>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-left">
+      <thead>
+        <tr class="border-b border-outline-variant/30">
+          <th class="px-6 py-3 font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">#</th>
+          <th class="px-6 py-3 font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Ad Soyad</th>
+          <th class="px-6 py-3 font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Yorum</th>
+          <th class="px-6 py-3 font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest">Puan</th>
+          <th class="px-6 py-3 font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest text-right">İşlemler</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of testimonials(); track $index) {
+          <tr class="border-b border-outline-variant/10 hover:bg-surface-container-low/60 transition-colors duration-200">
+            <td class="px-6 py-4 font-body-md text-on-surface-variant">{{ $index + 1 }}</td>
+            <td class="px-6 py-4 font-headline-md text-[15px] text-on-surface">{{ item.fullName }}</td>
+            <td class="px-6 py-4 font-body-md text-[13px] text-on-surface-variant max-w-sm truncate">{{ item.comment }}</td>
+            <td class="px-6 py-4">
+              <div class="flex gap-0.5 text-secondary">
+                @for (star of stars; track star) {
+                  <span class="material-symbols-outlined text-[16px]"
+                        [style.font-variation-settings]="star <= item.rating ? '\'FILL\' 1' : '\'FILL\' 0'">star</span>
+                }
+              </div>
+            </td>
+            <td class="px-6 py-4">
+              <div class="flex justify-end gap-2">
+                <a [routerLink]="['update', item.id]"
+                   class="flex items-center gap-1 px-4 py-2 rounded-full border border-outline-variant text-primary font-label-sm text-[12px] hover:bg-secondary hover:text-on-secondary hover:border-secondary transition-colors duration-200">
+                  <span class="material-symbols-outlined text-[16px]">edit</span>
+                  Güncelle
+                </a>
+                <button (click)="delete(item.id)"
+                        class="flex items-center gap-1 px-4 py-2 rounded-full border border-error/40 text-error font-label-sm text-[12px] hover:bg-error-container hover:text-on-error-container hover:border-error transition-colors duration-200">
+                  <span class="material-symbols-outlined text-[16px]">delete</span>
+                  Sil
+                </button>
+              </div>
+            </td>
+          </tr>
+        } @empty {
+          <tr><td colspan="5" class="px-6 py-16 text-center font-body-md text-on-surface-variant">Henüz yorum eklenmemiş.</td></tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

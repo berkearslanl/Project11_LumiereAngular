@@ -1,0 +1,73 @@
+<div class="max">
+  <div class="mb-stack-lg">
+    <a
+      routerLink=".."
+      class="flex items-center gap-1 font-label-sm text-[12px] text-on-surface-variant hover:text-primary transition-colors mb-2 w-fit"
+    >
+      <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+      İletişim Mesajları
+    </a>
+    <h1 class="font-headline-lg text-headline-lg text-on-surface">Mesaj Ekle</h1>
+  </div>
+
+  <form
+    #createForm="ngForm"
+    (ngSubmit)="create()"
+    class="bg-surface-container-lowest shadow-[0_4px_24px_rgba(124,82,99,0.05)] p-8 flex flex-col gap-stack-md"
+  >
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest"
+        >Ad Soyad</label
+      >
+      <input
+        type="text"
+        name="fullname"
+        required
+        [(ngModel)]="contactMessage.fullname"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest"
+        >E-posta</label
+      >
+      <input
+        type="email"
+        name="email"
+        required
+        [(ngModel)]="contactMessage.email"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label class="font-label-sm text-[11px] text-on-surface-variant uppercase tracking-widest"
+        >Mesaj</label
+      >
+      <textarea
+        name="messageDetail"
+        rows="4"
+        required
+        [(ngModel)]="contactMessage.messageDetail"
+        class="bg-surface border border-outline-variant px-4 py-3 font-body-md text-on-surface focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors duration-200 resize-none"
+      ></textarea>
+    </div>
+
+    <div class="flex gap-stack-sm mt-2">
+      <button
+        type="submit"
+        [disabled]="createForm.invalid"
+        class="bg-primary text-on-primary font-label-sm text-label-sm px-8 py-3 rounded-full hover:bg-secondary hover:text-on-secondary transition-colors duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+      >
+        Ekle
+      </button>
+      <a
+        routerLink=".."
+        class="font-label-sm text-label-sm text-on-surface-variant px-8 py-3 border border-outline-variant hover:bg-surface-container-low transition-colors duration-200 rounded-full"
+      >
+        Vazgeç
+      </a>
+    </div>
+  </form>
+</div>

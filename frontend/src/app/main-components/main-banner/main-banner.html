@@ -1,0 +1,40 @@
+<!-- Banner Bölümü -->
+ @for (item of features(); track $index) {<section
+  class="relative h-screen min-h-[700px] flex items-center justify-center bg-surface-container-low pt-[80px]"
+  id="home"
+>
+  <img
+    alt="Banner Görseli"
+    class="absolute inset-0 w-full h-full object-cover object-center opacity-80 mix-blend-multiply"
+    src="{{item.imageUrl}}"
+  />
+
+  <div class="relative z-10 text-center max-w-3xl px-margin-mobile flex flex-col items-center">
+    <span
+      class="font-label-sm text-label-sm text-primary uppercase tracking-[0.2em] mb-stack-md"
+    >
+      {{item.title}}
+    </span>
+
+    <h1
+      class="font-display-lg text-display-lg md:text-[80px] text-on-surface mb-stack-lg leading-tight"
+    >
+      {{item.mainTitle}}
+    </h1>
+
+    <p
+      class="font-body-lg text-body-lg text-on-surface-variant mb-stack-lg max-w-lg mx-auto"
+    >
+      {{item.description}}
+    </p>
+
+    <div class="flex gap-stack-md">
+      <button
+        class="bg-secondary text-on-secondary font-label-sm text-label-sm px-8 py-4 rounded-none hover:bg-on-surface transition-colors duration-300 uppercase tracking-widest"
+      >
+        Koleksiyonu Keşfet
+      </button>
+    </div>
+  </div>
+</section>}
+

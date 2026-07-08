@@ -1,0 +1,38 @@
+@for (item of contactInfoes(); track $index) {
+  <div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-stack-sm">İletişime Geçin</h2>
+      <p class="font-body-md text-body-md text-on-surface-variant mb-stack-lg">
+        {{item.title}}
+      </p>
+      <div class="space-y-6">
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary">location_on</span>
+          <div>
+            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">
+              Adres
+            </p>
+            <p class="font-body-md text-on-surface-variant">{{item.address}}</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary">call</span>
+          <div>
+            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">
+              Telefon
+            </p>
+            <p class="font-body-md text-on-surface-variant">{{item.phone}}</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-4">
+          <span class="material-symbols-outlined text-secondary">mail</span>
+          <div>
+            <p class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface">
+              E-posta
+            </p>
+            <p class="font-body-md text-on-surface-variant">{{item.email}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+}
+
